@@ -1,0 +1,58 @@
+<po-page-default [p-actions]="pageActions">
+
+
+    <po-container 
+        p-height=""
+        p-no-border="false"
+        p-no-padding="false"
+        p-no-shadow="false">
+        <div class="po-row">
+        
+            <po-select
+                name="tarefa"
+                p-icon="po-icon-list"
+                p-label="Escolha a tarefa"
+                p-placeholder = 'Selecione...'
+                [(ngModel)]="itemEscolhido"
+                class="po-md-6"
+                [p-options]="[{value: '1', label: 'Aprender HTML, CSS, JS' },
+                            {value: '2' , label: 'Aprender TypeScript'},
+                            {value: '3' , label: 'Aprender Angular' },
+                            {value: '4' , label: 'Aprender Portinari'}]">
+            </po-select>
+
+            <po-datepicker 
+                class="po-md-4"
+                p-clean
+                p-placeholder = 'Informe...'
+                type="date"
+                [(ngModel)]="dataValidade"
+                p-icon="po-icon-calendar"
+                p-label="Até a Data"
+                focus="focus">
+            </po-datepicker>
+            </div>
+            <po-button
+                    p-icon="po-icon-star-filled"
+                    p-label="Salvar"
+                    p-loading="false"
+                    p-type="primary"
+                    (p-click)="createLista()">
+            </po-button>
+    </po-container>
+    <!-- <br><br><br><br><br><br><br> -->
+    <div class="po-mt-5">
+    <po-divider 
+        p-label="Sua lista de Tarefas para cumprir">
+    </po-divider>
+    </div>
+
+    <po-table
+        p-selectable
+        p-sort="true"
+        p-striped="true"
+        [p-columns] ="columns"
+        [p-items]="items"
+        >
+    </po-table>    
+</po-page-default>
